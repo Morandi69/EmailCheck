@@ -29,7 +29,7 @@
         android:id="@+id/LinearLogin"
         android:layout_below="@id/headerText"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
@@ -39,24 +39,26 @@
         app:boxBackgroundColor="#9f4be3"
         app:hintTextColor="@color/white"
         app:helperTextTextColor="@color/white"
+        app:errorEnabled="true"
+        app:errorTextAppearance="@style/MyTextStyle"
         >
 
-        <!--this is the actual edit text which takes the input-->
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text"
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/email_EditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            />
+            android:layout_height="50dp"
+            android:paddingLeft="15dp"
+            android:textColor="@color/white" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/LinearPassword"
         android:layout_below="@+id/LinearLogin"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -65,17 +67,15 @@
         app:boxStrokeColor="@color/white"
         app:boxBackgroundColor="#9f4be3"
         app:hintTextColor="@color/white"
-        app:helperTextTextColor="@color/white"
         app:errorEnabled="true"
         app:passwordToggleEnabled="true"
-        app:errorTextAppearance="@style/Theme.AppCompat.Dialog.Alert"
-
+        app:errorTextAppearance="@style/MyTextStyle"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_pass"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:textColor="@color/white"
             android:inputType="textPassword"
             />
@@ -83,13 +83,12 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/LinearPassword_second"
         android:layout_below="@+id/LinearPassword"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:hint="Repeat pass"
         android:textColorHint="@color/white"
@@ -99,12 +98,13 @@
         app:helperTextTextColor="@color/white"
         app:endIconMode="password_toggle"
         app:errorEnabled="true"
+        app:errorTextAppearance="@style/MyTextStyle"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_passSecond"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:textColor="@color/white"
             android:inputType="textPassword"
 
@@ -126,6 +126,7 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="#03dac4"
         android:text="Sign Up" />
+
 
 
 
