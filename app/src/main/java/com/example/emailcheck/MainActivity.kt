@@ -69,10 +69,7 @@ class MainActivity : AppCompatActivity() {
                     var adapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_dropdown_item_1line, possibleEmails)
                     emailText.setAdapter(adapter)
                     domain=email.editText?.text.toString().substring(email.editText?.text.toString().indexOf("@")+1)
-                    if(domain in domains)
-                        email.error=null
-                    else
-                        email.error="Некорректный адрес электронной почты"
+
 
                 }
                 if(email.editText?.text.toString()==""){
