@@ -14,7 +14,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var sec_pass:TextInputLayout
     private lateinit var emailText:AutoCompleteTextView
     private lateinit var loginButton:Button
-    private var domains= arrayOf("gmail.com","mail.ru","yandex.ru","rambler.ru","yahoo.com","outlook.com")
+    private var domains= arrayOf("gmail.com","mail.ru","yandex.ru","rambler.ru","yahoo.com","outlook.com", "gmail.uk.com", "hotmail.com","bk.ru")
+
     private var possibleEmails= arrayOf<String>()
 
 
@@ -58,6 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         email.editText?.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(cs: CharSequence, arg1: Int, arg2: Int, arg3: Int) {
+                var domain=""
                 if(email.editText?.text.toString().contains("@")){
                     val curEmail=email.editText?.text.toString().substring(0,email.editText?.text.toString().indexOf("@"))
                     possibleEmails= arrayOf()
@@ -66,6 +68,11 @@ class MainActivity : AppCompatActivity() {
                     }
                     var adapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_dropdown_item_1line, possibleEmails)
                     emailText.setAdapter(adapter)
+                    domain=email.editText?.text.toString().substring(email.editText?.text.toString().indexOf("@")+1)
+                    if(domain in domains)
+                        email.error=null
+                    else
+                        email.error="Некорректный адрес электронной почты"
 
                 }
                 if(email.editText?.text.toString()==""){
@@ -73,6 +80,11 @@ class MainActivity : AppCompatActivity() {
                 }else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email.editText?.text.toString()).matches()){
                     email.error="Некорректный адрес электронной почты"
                 }else email.error=null
+
+                if(domain in domains)
+                    email.error=null
+                else
+                    email.error="Некорректный адрес электронной почты"
             }
 
             override fun beforeTextChanged(s: CharSequence, arg1: Int, arg2: Int, arg3: Int) {}
