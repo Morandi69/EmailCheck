@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
+import javax.mail.Address
 
 
 class MainActivity : AppCompatActivity() {
@@ -82,6 +83,7 @@ class MainActivity : AppCompatActivity() {
                     email.error=null
                 else
                     email.error="Некорректный адрес электронной почты"
+
             }
 
             override fun beforeTextChanged(s: CharSequence, arg1: Int, arg2: Int, arg3: Int) {}
